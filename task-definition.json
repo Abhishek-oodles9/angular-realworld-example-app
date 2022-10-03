@@ -1,5 +1,5 @@
 {
-    "family": "codeDeploy_testing", 
+    "family": "realword", 
     "networkMode": "awsvpc", 
     "containerDefinitions": [
         {
@@ -16,7 +16,7 @@
         }
     ], 
     "requiresCompatibilities": [
-        "EC2"
+        "FARGATE"
     ], 
     "executionRoleArn": "ecsTaskExecutionRole",
     "cpu": "256", 
