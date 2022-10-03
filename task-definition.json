@@ -1,0 +1,24 @@
+{
+    "family": "codeDeploy_testing", 
+    "networkMode": "awsvpc", 
+    "containerDefinitions": [
+        {
+            "name": "codeDeploy", 
+            "image": "852518815216.dkr.ecr.us-east-1.amazonaws.com/realwordrepo:latest", 
+            "portMappings": [
+                {
+                    "containerPort": 80, 
+                    "hostPort": 80, 
+                    "protocol": "tcp"
+                }
+            ], 
+            "essential": true
+        }
+    ], 
+    "requiresCompatibilities": [
+        "EC2"
+    ], 
+    "executionRoleArn": "ecsTaskExecutionRole",
+    "cpu": "256", 
+    "memory": "512"
+}
