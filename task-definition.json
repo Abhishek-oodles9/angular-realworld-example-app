@@ -4,7 +4,7 @@
     "containerDefinitions": [
         {
             "name": "codeDeploy", 
-            "image": "852518815216.dkr.ecr.us-east-1.amazonaws.com/realwordrepo:latest", 
+            "image": "abhi9929/nodeapp:latest", 
             "portMappings": [
                 {
                     "containerPort": 80, 
