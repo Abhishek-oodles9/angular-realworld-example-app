@@ -50,6 +50,7 @@ jobs:
         key: ${{ secrets.STAGE_AWS_PK_A }}
         host: ${{ secrets.STAGE_AWS_HOST }}
         username: ${{ secrets.AWS_USER }}
-        run: |    
+        script: | 
+         ls -lah
          docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
          docker run -dt --name deploying-web -p 8080:80 $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
