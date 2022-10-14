@@ -54,5 +54,5 @@ jobs:
         script: | 
           ls -lah
           docker pull 451010677902.dkr.ecr.us-east-1.amazonaws.com/lambdatesting:latest
-          docker run -dt name:$CONTAINER_NAME -p 80:80 451010677902.dkr.ecr.us-east-1.amazonaws.com/lambdatesting:latest
+          docker run -dt --name web -p 80:80 451010677902.dkr.ecr.us-east-1.amazonaws.com/lambdatesting:latest
     
