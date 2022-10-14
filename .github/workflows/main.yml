@@ -56,6 +56,5 @@ jobs:
           cd /opt/docker/apps &&
           ls -lah &&
           docker pull 451010677902.dkr.ecr.us-east-1.amazonaws.com/lambdatesting:latest &&
-          docker-compose up -d &&
-          docker-compose ps
+          docker-compose up -d
           
