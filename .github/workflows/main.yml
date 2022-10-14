@@ -52,5 +52,6 @@ jobs:
         username: ${{ secrets.AWS_USER }}
         script: | 
          ls -lah
-         docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-         docker run -dt --name deploying-web -p 8080:80 $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+         aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 451010677902.dkr.ecr.us east-1.amazonaws.com
+         docker pull 451010677902.dkr.ecr.us-east-1.amazonaws.com/lambdatesting:$IMAGE_TAG
+         docker run -dt --name web -p 80:80 451010677902.dkr.ecr.us-east-1.amazonaws.com/lambdatesting:$IMAGE_TAG
