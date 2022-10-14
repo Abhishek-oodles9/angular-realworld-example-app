@@ -46,11 +46,11 @@ jobs:
         
     - name: check changes and deploy in EC2 server
       uses: appleboy/ssh-action@master
-        with:
-          key: ${{ secrets.STAGE_AWS_PK_A }}
-          host: ${{ secrets.STAGE_AWS_HOST }}
-          username: ${{ secrets.AWS_USER }}
-          run: |    
-            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 451010677902.dkr.ecr.us-east-1.amazonaws.com
-            docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-            docker run -dt --name deploying-web -p 8080:80 $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+      with:
+        key: ${{ secrets.STAGE_AWS_PK_A }}
+        host: ${{ secrets.STAGE_AWS_HOST }}
+        username: ${{ secrets.AWS_USER }}
+        run: |    
+         aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 451010677902.dkr.ecr.us east-1.amazonaws.com
+         docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+         docker run -dt --name deploying-web -p 8080:80 $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
