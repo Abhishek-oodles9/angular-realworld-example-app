@@ -44,5 +44,14 @@ jobs:
           .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-        
+    - name: check changes and deploy in EC2 server
+      uses: appleboy/ssh-action@master
+      with:
+        key: ${{ secrets.STAGE_AWS_PK_A }}
+        host: ${{ secrets.STAGE_AWS_HOST }}
+        username: ${{ secrets.AWS_USER }}
+        script: | 
+          ls -lah
+          docker pull 451010677902.dkr.ecr.us-east-1.amazonaws.com/lambdatesting:latest
+    
     
