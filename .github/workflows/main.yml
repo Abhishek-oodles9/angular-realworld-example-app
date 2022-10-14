@@ -50,7 +50,12 @@ jobs:
         key: ${{ secrets.STAGE_AWS_PK_A }}
         host: ${{ secrets.STAGE_AWS_HOST }}
         username: ${{ secrets.AWS_USER }}
+        
+    - name: Pull the image from Amazon ECR
+      id: pull-image
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        IMAGE_TAG: ${{ github.sha }}
         script: | 
-         ls -lah
-         docker run -dt --name web-cal1 -p 8085:80 abhi9929/cal:latest
-         docker run -dt --name web-realword1 -p 8084:80 451010677902.dkr.ecr.us-east-1.amazonaws.com/lambdatesting:latest
+            ls -lah
+         
