@@ -7,7 +7,8 @@ on:
 
 env:
   AWS_REGION: us-east-1                   
-  ECR_REPOSITORY: lambdatesting                 
+  ECR_REPOSITORY: lambdatesting
+  CONTAINER_NAME: web
 
 jobs:
   deploy:
@@ -53,5 +54,5 @@ jobs:
         script: | 
           ls -lah
           docker pull 451010677902.dkr.ecr.us-east-1.amazonaws.com/lambdatesting:latest
-    
+          docker run -dt --name:$CONTAINER_NAME -p 80:80 451010677902.dkr.ecr.us-east-1.amazonaws.com/lambdatesting:latest
     
