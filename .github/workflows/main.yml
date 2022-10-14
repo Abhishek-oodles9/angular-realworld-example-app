@@ -52,5 +52,5 @@ jobs:
         username: ${{ secrets.AWS_USER }}
         script: | 
          ls -lah
-         docker run -dt --name web-cal -p 8080:80 abhi9929/cal:latest
-         docker run -dt --name web-realword -p 8083:80 451010677902.dkr.ecr.us-east-1.amazonaws.com/lambdatesting:5d73be7aba116be8c385e18d30e98a88a96dada2
+         docker run -dt --name web-cal1 -p 8085:80 abhi9929/cal:latest
+         docker run -dt --name web-realword1 -p 8084:80 451010677902.dkr.ecr.us-east-1.amazonaws.com/lambdatesting:latest
